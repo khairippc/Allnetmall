@@ -92,7 +92,7 @@
                     <div class="benefit-card">
                         <img src="./Skin-Tag – sumbersihat.com_files/4.png" alt="Pelbagai Kulit">
                         <h3>SESUAI UNTUK PELBAGAI JENIS KULIT</h3>
-                        <p>Berkesan dan sesuai untuk pelbagai jenis kulit dengan bahan yang lembut dan tidak merengsakan, seperti ekstrak tumbuhan semulajadi atau bahan bebas kimia.</p>
+                        <p>Berkesan dan sesuai untuk pelbagai jenis kulit dengan bahan yang lembut and tidak merengsakan, seperti ekstrak tumbuhan semulajadi atau bahan bebas kimia.</p>
                     </div>
                     <div class="benefit-card">
                         <img src="./Skin-Tag – sumbersihat.com_files/16.png" alt="Jimat Kos">
@@ -191,10 +191,28 @@
                         </div>
 
                         <label>NEGERI</label>
-                        <input type="text" name="state" required>
+                        <select id="state-select" name="state" required>
+                            <option value="">Pilih Negeri</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Kuala Lumpur">W.P. Kuala Lumpur</option>
+                            <option value="Putrajaya">W.P. Putrajaya</option>
+                            <option value="Johor">Johor</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Pulau Pinang">Pulau Pinang</option>
+                            <option value="Terengganu">Terengganu</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Labuan">W.P. Labuan</option>
+                        </select>
 
                         <label>KAWASAN</label>
-                        <select name="region" id="reg-select">
+                        <select name="region" id="reg-select" style="pointer-events: none; background: #eee; cursor: not-allowed;">
                             <option value="10">Semenanjung (RM10)</option>
                             <option value="15">Sabah / Sarawak (RM15)</option>
                         </select>
@@ -262,6 +280,19 @@
 
         pkg.onchange = updatePrice;
         reg.onchange = updatePrice;
+
+        // Auto Region Logic
+        const stateSelect = document.getElementById('state-select');
+        const ssStates = ['Sabah', 'Sarawak', 'Labuan'];
+
+        stateSelect.onchange = () => {
+            if (ssStates.includes(stateSelect.value)) {
+                reg.value = "15";
+            } else if (stateSelect.value !== "") {
+                reg.value = "10";
+            }
+            updatePrice();
+        };
 
         // Form Submit
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmZ5J4R-HPOdBuxNMh7U5Eg_ltP5COaHju0LF22tY8j4TbrtVmqkz9-CMfr6g3Mbnsbw/exec';

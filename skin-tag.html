@@ -182,11 +182,11 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <div>
                                 <label>POSKOD</label>
-                                <input type="text" name="zip" required>
+                                <input type="text" id="zip-input" name="zip" maxlength="5" placeholder="Cth: 47500" required oninput="lookupPostcode(this.value)">
                             </div>
                             <div>
-                                <label>BANDAR</label>
-                                <input type="text" name="city" required>
+                                <label>BANDAR <span id="city-status" style="font-size:11px; color:#888; font-weight:400;"></span></label>
+                                <input type="text" id="city-input" name="city" placeholder="Auto-isi dari poskod" required>
                             </div>
                         </div>
 
@@ -293,6 +293,68 @@
             }
             updatePrice();
         };
+
+        // Postcode Lookup
+        async function lookupPostcode(zip) {
+            const cityInput = document.getElementById('city-input');
+            const stateSelect = document.getElementById('state-select');
+            const cityStatus = document.getElementById('city-status');
+
+            // Only lookup when exactly 5 digits
+            if (zip.length !== 5 || !/^\d{5}$/.test(zip)) {
+                cityStatus.textContent = '';
+                return;
+            }
+
+            cityStatus.textContent = '⏳ Mencari...';
+
+            // Map API state names to our dropdown values
+            const stateMap = {
+                'Johor': 'Johor',
+                'Kedah': 'Kedah',
+                'Kelantan': 'Kelantan',
+                'Melaka': 'Melaka',
+                'Negeri Sembilan': 'Negeri Sembilan',
+                'Pahang': 'Pahang',
+                'Perak': 'Perak',
+                'Perlis': 'Perlis',
+                'Pulau Pinang': 'Pulau Pinang',
+                'Sabah': 'Sabah',
+                'Sarawak': 'Sarawak',
+                'Selangor': 'Selangor',
+                'Terengganu': 'Terengganu',
+                'Kuala Lumpur': 'Kuala Lumpur',
+                'Putrajaya': 'Putrajaya',
+                'Labuan': 'Labuan'
+            };
+
+            try {
+                const response = await fetch(`https://api.zippopotam.us/MY/${zip}`);
+                if (!response.ok) {
+                    cityStatus.textContent = '❌ Poskod tidak dijumpai';
+                    return;
+                }
+                const data = await response.json();
+                const place = data.places[0];
+                const cityName = place['place name'];
+                const stateName = place['state'];
+
+                cityInput.value = cityName;
+                cityStatus.textContent = '✅';
+
+                // Auto-select state
+                const mappedState = stateMap[stateName] || stateName;
+                for (let i = 0; i < stateSelect.options.length; i++) {
+                    if (stateSelect.options[i].value === mappedState) {
+                        stateSelect.selectedIndex = i;
+                        stateSelect.dispatchEvent(new Event('change'));
+                        break;
+                    }
+                }
+            } catch (err) {
+                cityStatus.textContent = '❌ Ralat sambungan';
+            }
+        }
 
         // Form Submit
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmZ5J4R-HPOdBuxNMh7U5Eg_ltP5COaHju0LF22tY8j4TbrtVmqkz9-CMfr6g3Mbnsbw/exec';

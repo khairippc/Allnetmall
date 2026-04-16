@@ -167,7 +167,7 @@
                         <input type="text" name="name" placeholder="Nama Penuh Anda" required>
 
                         <label>NO TELEFON</label>
-                        <input type="tel" name="phone" placeholder="No. Telefon Anda" required>
+                        <input type="tel" name="phone" placeholder="No. Telefon Anda (Contoh: 0123456789)" required oninput="this.value = this.value.startsWith('0') ? '6' + this.value : this.value;">
 
                         <label>PILIH PAKEJ</label>
                         <select name="package" id="pkg-select">

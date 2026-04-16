@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjagaan Kulit Premium - Skin Tag Solution</title>
+    <link rel="stylesheet" href="style3_premium.css">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '950021667576483');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=950021667576483&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <header>
+        <div class="container logo">SKIN TAG SOLUTION</div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h2>Kecantikan Bermula dengan <em>Kulit Yang Bersih.</em></h2>
+            <p>Penyelesaian lembut dan berkesan untuk menanggalkan kutil, ketuat dan tahi lalat sepantas 5 hari tanpa rawatan laser yang mahal.</p>
+            <div class="hero-img">
+                <img src="./Skin-Tag – sumbersihat.com_files/1.png" alt="Premium Product">
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="bento-grid">
+                <div class="bento-item large">
+                    <h3>Hasil Nyata & Terbukti</h3>
+                    <p>Lebih 87,000 pengguna telah kembali yakin dengan kulit mereka.</p>
+                    <img src="./Skin-Tag – sumbersihat.com_files/11-1024x889.png" alt="Testimony">
+                </div>
+                <div class="bento-item">
+                    <h3>Asid Salisilik Aktif</h3>
+                    <p>Bahan yang selamat untuk mengikis kulit bermasalah secara lembut.</p>
+                </div>
+                <div class="bento-item">
+                    <h3>3-4 Hari Sampai</h3>
+                    <p>Penghantaran pantas ke seluruh Malaysia.</p>
+                </div>
+                <div class="bento-item">
+                    <h3>Jimat & Selamat</h3>
+                    <p>Hanya sedikit sapuan untuk hasil yang memuaskan di rumah.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-card">
+                    <div class="step-indicator">
+                        <div class="step-dot active" id="dot-1"></div>
+                        <div class="step-dot" id="dot-2"></div>
+                        <div class="step-dot" id="dot-3"></div>
+                    </div>
+
+                    <form id="multi-step-form">
+                        <!-- Step 1: Package -->
+                        <div class="step active" id="step-1">
+                            <h3 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 20px;">1. Pilih Pakej Anda</h3>
+                            <div class="pkg-card" onclick="selectPkg(29, '1 Unit - RM29', this)">
+                                <span>1 Unit</span>
+                                <strong>RM29</strong>
+                            </div>
+                            <div class="pkg-card" onclick="selectPkg(55, '2 Unit - RM55', this)">
+                                <span>2 Unit (Jimat 5%)</span>
+                                <strong>RM55</strong>
+                            </div>
+                            <div class="pkg-card active" onclick="selectPkg(79, '3 Unit - RM79', this)">
+                                <span>3 Unit (Best Value)</span>
+                                <strong>RM79</strong>
+                            </div>
+                            <button type="button" class="btn-next" onclick="nextStep(2)">Seterusnya</button>
+                        </div>
+
+                        <!-- Step 2: Customer Info -->
+                        <div class="step" id="step-2">
+                            <h3 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 20px;">2. Maklumat Penghantaran</h3>
+                            <input type="text" placeholder="Nama Penuh" id="name" required style="width:100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border:1px solid #ddd;">
+                            <input type="tel" placeholder="No Telefon" id="phone" required style="width:100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border:1px solid #ddd;">
+                            <input type="text" placeholder="Alamat Penuh" id="address" required style="width:100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border:1px solid #ddd;">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" placeholder="Poskod" id="zip" required style="width:50%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border:1px solid #ddd;">
+                                <input type="text" placeholder="Bandar" id="city" required style="width:50%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border:1px solid #ddd;">
+                            </div>
+                            <button type="button" class="btn-next" onclick="nextStep(3)">Hampir Siap</button>
+                            <button type="button" class="btn-prev" onclick="nextStep(1)">Kembali</button>
+                        </div>
+
+                        <!-- Step 3: Confirmation -->
+                        <div class="step" id="step-3">
+                            <h3 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 20px;">3. Pengesahan Pesanan</h3>
+                            <div style="background: #fff; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                                <p id="summary-text">3 Unit - RM79</p>
+                                <p>Caj Penghantaran: RM10</p>
+                                <hr style="margin: 10px 0; border: none; border-top: 1px solid #eee;">
+                                <p style="font-weight: 700; font-size: 20px;">Jumlah: <span id="total-text">RM89</span></p>
+                            </div>
+                            <button type="submit" class="btn-next">Sahkan Tempahan</button>
+                            <button type="button" class="btn-prev" onclick="nextStep(2)">Kembali</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let currentStep = 1;
+        let selectedPkgPrice = 79;
+        let selectedPkgLabel = '3 Unit - RM79';
+
+        function selectPkg(price, label, el) {
+            selectedPkgPrice = price;
+            selectedPkgLabel = label;
+            document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            
+            // Update dots
+            document.querySelectorAll('.step-dot').forEach((d, i) => {
+                if(i < step) d.classList.add('active');
+                else d.classList.remove('active');
+            });
+
+            if(step === 3) {
+                document.getElementById('summary-text').innerText = selectedPkgLabel;
+                document.getElementById('total-text').innerText = 'RM' + (selectedPkgPrice + 10);
+            }
+        }
+
+        document.getElementById('multi-step-form').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Tempahan Premium Berhasil! Kami akan menghubungi anda.');
+        };
+    </script>
+</body>
+</html>

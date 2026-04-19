@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih - SKIN TAG SOLUTION</title>
+    <link rel="stylesheet" href="style2_urgency.css">
+    <style>
+        .thank-you-container {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        .success-icon {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .order-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            text-align: left;
+            background: #fff;
+            color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .order-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .order-table td:first-child {
+            font-weight: 700;
+            width: 40%;
+            background: #f9f9f9;
+        }
+        .courier-partners {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .courier-partners img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+        .btn-home {
+            margin-top: 30px;
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+    <!-- Meta Pixel Code from skin-tag.html -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '950021667576483');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=950021667576483&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <header>
+        <div class="container logo">
+            <h1>SKIN TAG <span>SOLUTION</span></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="thank-you-container">
+            <img src="Thank%20you/Thank%20You_files/checked_2.png" alt="Success" class="success-icon">
+            <h2 style="color: var(--accent-yellow); margin-bottom: 15px; font-weight: 900; font-size: 32px;">TERIMA KASIH!</h2>
+            <p style="font-size: 18px; line-height: 1.6;">Pesanan anda telah berjaya diterima. Kami akan memproses pesanan anda dan menghubungi anda sebentar lagi untuk pengesahan penghantaran.</p>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: #fff; font-weight: 800; font-size: 22px; margin-bottom: 20px;"><u>MAKLUMAT PESANAN</u></h3>
+                <table class="order-table">
+                    <tr>
+                        <td>Nama Pelanggan:</td>
+                        <td id="display-name">-</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat:</td>
+                        <td id="display-address">-</td>
+                    </tr>
+                    <tr>
+                        <td>Poskod:</td>
+                        <td id="display-zip">-</td>
+                    </tr>
+                    <tr>
+                        <td>Negeri:</td>
+                        <td id="display-state">-</td>
+                    </tr>
+                    <tr>
+                        <td>No Tel:</td>
+                        <td id="display-phone">-</td>
+                    </tr>
+                    <tr>
+                        <td>Nama Produk:</td>
+                        <td>Skin Tag Solution</td>
+                    </tr>
+                    <tr>
+                        <td>Pakej Tempahan:</td>
+                        <td id="display-package">-</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #fff200; color: #000;">Jumlah Bayaran:</td>
+                        <td id="display-total" style="font-weight: 900; color: var(--primary-color); font-size: 20px; background: #fff200;">-</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 14px; color: var(--text-muted); font-style: italic;">
+                Item anda akan dihantar oleh <strong>NINJA LOGISTICS SDN BHD.</strong> Semua pesanan dihantar melalui penghantaran ekspres (COD - Barang sampai baru bayar).
+            </p>
+
+            <div class="courier-partners">
+                <img src="Thank%20you/Thank%20You_files/ninga.svg" alt="NinjaVan">
+            </div>
+
+            <a href="skin-tag.html" class="btn-home">KEMBALI KE LAMAN UTAMA</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 40px 0; font-size: 13px; color: #888; border-top: 1px solid #333; margin-top: 40px;">
+            <p>&copy; 2026 Skin Tag Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataStr = localStorage.getItem('orderData');
+            if (dataStr) {
+                try {
+                    const data = JSON.parse(dataStr);
+                    document.getElementById('display-name').textContent = data.name || '-';
+                    document.getElementById('display-address').textContent = (data.address || '') + (data.city ? ', ' + data.city : '');
+                    document.getElementById('display-zip').textContent = data.zip || '-';
+                    document.getElementById('display-state').textContent = data.state || '-';
+                    document.getElementById('display-phone').textContent = data.phone || '-';
+                    document.getElementById('display-package').textContent = data.package || '-';
+                    document.getElementById('display-total').textContent = 'RM' + (data.price_total || '0.00');
+
+                    // Track Purchase & Lead Events
+                    if (window.fbq) {
+                        const purchaseValue = parseFloat(data.price_total) || 0;
+
+                        // Purchase Event
+                        fbq('track', 'Purchase', {
+                            value: purchaseValue,
+                            currency: 'MYR',
+                            content_name: 'Skin Tag Solution',
+                            content_category: 'Skincare'
+                        });
+
+                        // Lead Event
+                        fbq('track', 'Lead', {
+                            value: purchaseValue,
+                            currency: 'MYR',
+                            content_name: 'Skin Tag Solution'
+                        });
+                    }
+                } catch (e) {
+                    console.error("Error parsing order data", e);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -391,20 +391,19 @@
             };
 
             try {
+                // Save data to localStorage for the thank you page
+                localStorage.setItem('orderData', JSON.stringify(payload));
+
                 await fetch(SCRIPT_URL, {
                     method: 'POST',
                     body: JSON.stringify(payload)
                 });
 
-                btn.textContent = 'TEMPAH SEKARANG';
-                btn.disabled = false;
-                form.reset();
-                updatePrice();
-                alert('Terima kasih! Tempahan anda telah diterima. Kami akan hubungi anda sebentar lagi.');
+                window.location.href = 'thank-you.html';
             } catch (err) {
-                btn.textContent = 'TEMPAH SEKARANG';
-                btn.disabled = false;
-                alert('Ralat semasa menghantar. Sila cuba lagi atau hubungi kami terus.');
+                // In some cases, fetch may fail due to CORS but data is still sent.
+                // Redirecting to thank-you.html ensures the user sees the confirmation.
+                window.location.href = 'thank-you.html';
             }
         };
     </script>

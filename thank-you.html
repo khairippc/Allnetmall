@@ -65,6 +65,19 @@
             letter-spacing: 1px;
             animation: pulse 1.5s infinite;
         }
+        /* Anti-Copy Protection */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
     </style>
     <!-- Meta Pixel Code from skin-tag.html -->
     <script>
@@ -190,6 +203,33 @@
                 }
             }
         });
+
+        // --- Landers Shield Protection ---
+        (function() {
+            // Disable Right Click
+            document.addEventListener('contextmenu', e => e.preventDefault());
+
+            // Disable Keyboard Shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (
+                    e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) ||
+                    (e.metaKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80))
+                ) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Anti-Debugger Loop
+            setInterval(function() {
+                const startTime = performance.now();
+                debugger;
+                const endTime = performance.now();
+                if (endTime - startTime > 100) {}
+            }, 1000);
+        })();
     </script>
 </body>
 </html>

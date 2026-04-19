@@ -147,8 +147,25 @@
             font-size: 0.8rem;
             color: #6b7280;
             border-top: 1px solid #2d3748;
-        }
-    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2143906399676919');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2143906399676919&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -237,6 +254,13 @@
                     document.getElementById('display-state').textContent   = data.state   || '-';
                     document.getElementById('display-shipping').textContent = data.price_shipping === '0.00' ? 'FREE' : 'RM' + data.price_shipping;
                     document.getElementById('display-total').textContent   = 'RM' + (data.price_total || '0.00');
+
+                    // Meta Pixel tracking with dynamic value
+                    if (data.price_total) {
+                        const val = parseFloat(data.price_total) || 0;
+                        fbq('track', 'Lead', { value: val, currency: 'MYR' });
+                        fbq('track', 'Purchase', { value: val, currency: 'MYR' });
+                    }
                 } catch (e) {}
             }
         });

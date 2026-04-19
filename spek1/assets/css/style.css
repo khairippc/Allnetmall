@@ -95,6 +95,9 @@ h1, h2, h3 {
 
 .text-red { color: var(--danger); }
 .text-orange { color: var(--primary); }
+.text-center { text-align: center !important; }
+.text-yellow { color: var(--yellow); }
+.bold { font-weight: 800; }
 
 /* Hero */
 .pre-headline {
@@ -333,6 +336,8 @@ input, select, textarea {
 .btn-order {
   display: block;
   width: 100%;
+  max-width: 450px;
+  margin: 25px auto 0 auto;
   padding: 20px;
   background: var(--danger);
   color: white;
@@ -343,9 +348,25 @@ input, select, textarea {
   border: none;
   cursor: pointer;
   text-transform: uppercase;
-  margin-top: 25px;
   box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
   animation: shake 5s infinite;
+}
+
+/* Timer */
+.countdown-container {
+  background: #fff;
+  border: 2px dashed var(--danger);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.countdown-timer {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--danger);
+  font-family: monospace;
 }
 
 @keyframes shake {

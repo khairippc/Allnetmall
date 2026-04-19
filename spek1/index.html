@@ -153,7 +153,7 @@
                 INI!</p>
 
             <div class="benefit-card">
-                <img src="assets/images/benefit-1.jpeg" alt="HD Vision Technology">
+                <img src="assets/images/feature%201.jpeg" alt="HD Vision Technology">
                 <div class="p-4">
                     <h3>HD VISION TECHNOLOGY</h3>
                     <p>Meningkatkan kejelasan warna dan kontrast pandangan anda semasa memandu.</p>
@@ -161,7 +161,7 @@
             </div>
 
             <div class="benefit-card">
-                <img src="assets/images/benefit-2.jpeg" alt="Anti-Reflective Coating">
+                <img src="assets/images/feature%202.jpeg" alt="Anti-Reflective Coating">
                 <div class="p-4">
                     <h3>ANTI-REFLECTIVE COATING</h3>
                     <p>Mengurangkan silau daripada lampu kenderaan lawan arah dan lampu jalan.</p>
@@ -169,7 +169,7 @@
             </div>
 
             <div class="benefit-card">
-                <img src="assets/images/benefit-3.jpeg" alt="UV400 Protection">
+                <img src="assets/images/feature%203.jpeg" alt="UV400 Protection">
                 <div class="p-4">
                     <h3>UV400 PROTECTION</h3>
                     <p>Melindungi mata anda daripada sinaran UV merbahaya siang dan malam.</p>
@@ -194,10 +194,10 @@
         <div class="container">
             <h2 class="text-red">APA KATA PENGGUNA KAMI?</h2>
             <div class="feedback-grid">
-                <img src="assets/images/feedback-1.jpg" alt="Feedback 1">
-                <img src="assets/images/feedback-2.jpeg" alt="Feedback 2">
-                <img src="assets/images/feedback-3.webp" alt="Feedback 3">
-                <img src="assets/images/feedback-4.webp" alt="Feedback 4">
+                <img src="assets/images/benefit-1.jpeg" alt="Feedback 1">
+                <img src="assets/images/benefit-2.jpeg" alt="Feedback 2">
+                <img src="assets/images/benefit-3.jpeg" alt="Feedback 3">
+                <img src="assets/images/feedback-1.jpg" alt="Feedback 4">
             </div>
             <p class="text-center bold" style="margin-top: 30px; font-size: 1.2rem;">HAMPIR BERIBU UNIT TERJUAL SETIAP
                 HARI!</p>
@@ -212,8 +212,8 @@
 
             <div class="package-card headline">
                 <div class="popular-badge">PALING JIMAT / BEST SELLER</div>
-                <img src="assets/images/pakej-c.jpeg" alt="Pakej Family"
-                    style="width: 100%; display: block; margin-bottom: 15px;">
+                <img src="assets/images/pakej%20c%20baru.jpeg" alt="Pakej Family"
+                    style="width: 100%; display: block; margin-bottom: 15px; border-radius: 10px;">
                 <h3>PAKEJ FAMILY (BELI 3 FREE 2)</h3>
                 <div class="price">RM139</div>
                 <p class="bold text-red">JIMAT RM156 + FREE POSTAGE</p>
@@ -221,8 +221,8 @@
             </div>
 
             <div class="package-card">
-                <img src="assets/images/pakej-b.jpeg" alt="Pakej Trio"
-                    style="width: 100%; display: block; margin-bottom: 15px;">
+                <img src="assets/images/pakej%20B%20baru.jpeg" alt="Pakej Trio"
+                    style="width: 100%; display: block; margin-bottom: 15px; border-radius: 10px;">
                 <h3>PAKEJ TRIO (BELI 2 FREE 1)</h3>
                 <div class="price">RM99</div>
                 <p class="bold text-red">JIMAT RM78 + FREE POSTAGE</p>
@@ -230,8 +230,8 @@
             </div>
 
             <div class="package-card">
-                <img src="assets/images/pakej-a.png" alt="Pakej Solo"
-                    style="width: 100%; display: block; margin-bottom: 15px;">
+                <img src="assets/images/pakej%20a%20baru.jpeg" alt="Pakej Solo"
+                    style="width: 100%; display: block; margin-bottom: 15px; border-radius: 10px;">
                 <h3>PAKEJ SOLO (1 SET)</h3>
                 <div class="price">RM49</div>
                 <p>+ RM10 POSTAGE</p>
@@ -240,6 +240,11 @@
 
             <div class="order-form-container">
                 <h3 class="text-center" style="margin-bottom: 25px;">BORANG TEMPAHAN</h3>
+                
+                <div class="countdown-container">
+                    <p class="bold" style="color: #444; margin-bottom: 5px; font-size: 0.9rem;">TAWARAN TAMAT DALAM:</p>
+                    <div id="timer" class="countdown-timer">10:00</div>
+                </div>
                 <form id="spek-order-form">
                     <div class="form-group">
                         <label>NAMA PENUH</label>
@@ -437,6 +442,30 @@
                 }
             } catch { cityStatus.textContent = '❌ Ralat sambungan'; }
         }
+
+        // ── Timer Logic ───────────────────────────────────────────────
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reset to 10 mins when it reaches 0
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let tenMinutes = 60 * 10,
+            display = document.querySelector('#timer');
+            startTimer(tenMinutes, display);
+        };
 
         // ── Form Submit ─────────────────────────────────────────────────
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5nd7boNZ9w7n5P_IX2lAfmvQBSO3jf3eDpQS3nUGxIjVPbtDaJ0P1DjxF9IEr2plh/exec';

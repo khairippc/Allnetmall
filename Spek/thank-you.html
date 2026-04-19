@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih - Spek Anti Silau HD Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #111827;
+            color: #fff;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        img { -webkit-user-drag: none; }
+
+        header {
+            background: #fff;
+            padding: 15px 0;
+            border-bottom: 3px solid #111827;
+            text-align: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #111827;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .thank-you-container {
+            margin: 40px auto 60px;
+            text-align: center;
+            background: #1e2433;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid #2d3748;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .thank-you-container h2 {
+            color: #FFD200;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .thank-you-container > p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #d1d5db;
+        }
+
+        .order-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            text-align: left;
+            background: #fff;
+            color: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .order-table td {
+            padding: 13px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .order-table td:first-child {
+            font-weight: 700;
+            width: 42%;
+            background: #f9f9f9;
+            color: #374151;
+        }
+
+        .total-row td {
+            background: #FFD200 !important;
+            color: #111 !important;
+            font-weight: 900 !important;
+            font-size: 1.1rem !important;
+        }
+
+        .shipping-note {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .courier-partners {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .courier-partners img {
+            width: 100%;
+            max-width: 320px;
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
+        }
+
+        .btn-home {
+            margin-top: 30px;
+            display: inline-block;
+            background: #dc2626;
+            color: #fff;
+            padding: 16px 35px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220,38,38,0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(220,38,38,0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.8rem;
+            color: #6b7280;
+            border-top: 1px solid #2d3748;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container logo">Spek Anti Silau HD Vision</div>
+    </header>
+
+    <main class="container">
+        <div class="thank-you-container">
+            <span class="success-icon">✅</span>
+            <h2>Terima Kasih!</h2>
+            <p>Pesanan anda telah berjaya diterima. Kami akan memproses pesanan anda dan menghubungi anda sebentar lagi untuk pengesahan penghantaran.</p>
+
+            <div style="margin-top: 35px;">
+                <h3 style="color:#fff; font-weight:800; font-size:1.1rem; margin-bottom:15px; text-transform:uppercase;"><u>Maklumat Pesanan Anda</u></h3>
+                <table class="order-table">
+                    <tr>
+                        <td>Nama Pelanggan:</td>
+                        <td id="display-name">-</td>
+                    </tr>
+                    <tr>
+                        <td>No. Telefon:</td>
+                        <td id="display-phone">-</td>
+                    </tr>
+                    <tr>
+                        <td>Pakej Tempahan:</td>
+                        <td id="display-package">-</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat:</td>
+                        <td id="display-address">-</td>
+                    </tr>
+                    <tr>
+                        <td>Poskod:</td>
+                        <td id="display-zip">-</td>
+                    </tr>
+                    <tr>
+                        <td>Bandar:</td>
+                        <td id="display-city">-</td>
+                    </tr>
+                    <tr>
+                        <td>Negeri:</td>
+                        <td id="display-state">-</td>
+                    </tr>
+                    <tr>
+                        <td>Postage:</td>
+                        <td id="display-shipping">-</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Jumlah Bayaran (COD):</td>
+                        <td id="display-total">-</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="shipping-note">
+                Item anda akan dihantar oleh <strong>NINJA LOGISTICS SDN BHD.</strong><br>
+                Semua pesanan dihantar melalui penghantaran ekspres (COD — Barang sampai baru bayar).
+            </p>
+
+            <div class="courier-partners">
+                <img src="assets/images/ninga.svg" alt="NinjaVan COD">
+            </div>
+
+            <br>
+            <a href="index.html" class="btn-home">Kembali ke Laman Utama</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Spek Anti Silau HD Vision. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataStr = localStorage.getItem('orderData');
+            if (dataStr) {
+                try {
+                    const data = JSON.parse(dataStr);
+                    document.getElementById('display-name').textContent    = data.name    || '-';
+                    document.getElementById('display-phone').textContent   = data.phone   || '-';
+                    document.getElementById('display-package').textContent = data.package || '-';
+                    document.getElementById('display-address').textContent = data.address || '-';
+                    document.getElementById('display-zip').textContent     = data.zip     || '-';
+                    document.getElementById('display-city').textContent    = data.city    || '-';
+                    document.getElementById('display-state').textContent   = data.state   || '-';
+                    document.getElementById('display-shipping').textContent = data.price_shipping === '0.00' ? 'FREE' : 'RM' + data.price_shipping;
+                    document.getElementById('display-total').textContent   = 'RM' + (data.price_total || '0.00');
+                } catch (e) {}
+            }
+        });
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', function(e) {
+            if (
+                e.keyCode === 123 ||
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) ||
+                (e.metaKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80))
+            ) { e.preventDefault(); return false; }
+        });
+        setInterval(function() { const s = performance.now(); debugger; }, 1000);
+    </script>
+</body>
+</html>

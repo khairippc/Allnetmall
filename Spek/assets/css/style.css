@@ -1,0 +1,368 @@
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+input, textarea, select {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+}
+
+:root {
+  --primary: #f97316; /* Bold Orange */
+  --primary-hover: #ea580c;
+  --secondary: #111827; /* Dark Navy/Black */
+  --text: #374151;
+  --light: #ffffff;
+  --danger: #dc2626;
+  --yellow: #FFD200;
+  --bg-subtle: #f3f4f6;
+  --font-sans: 'Montserrat', 'Inter', sans-serif;
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  line-height: 1.6;
+  background-color: var(--light);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Announcement Bar */
+.announcement {
+  background: var(--danger);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Header */
+header {
+  padding: 15px 0;
+  background: var(--light);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Sections */
+section {
+  padding: 40px 0;
+}
+
+.bg-dark { background: var(--secondary); color: white; }
+.bg-light-grey { background: var(--bg-subtle); }
+.bg-yellow { background: var(--yellow); color: var(--secondary); }
+
+h1, h2, h3 {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-red { color: var(--danger); }
+.text-orange { color: var(--primary); }
+
+/* Hero */
+.pre-headline {
+  background: var(--yellow);
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.video-container {
+  border: 4px solid var(--primary);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 25px;
+  background: black;
+}
+
+video {
+  width: 100%;
+  display: block;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.video-thumbnail {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.01);
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stat-grid img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Comparison Table */
+.comparison-box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 30px 0;
+  color: var(--secondary);
+}
+
+.comparison-header {
+  background: var(--secondary);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.comparison-content {
+  display: flex;
+}
+
+.comp-item {
+  flex: 1;
+  padding: 20px;
+}
+
+.comp-item:first-child { border-right: 1px solid #eee; }
+
+.comp-item h4 {
+  font-weight: 800;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.comp-item ul {
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.comp-item ul li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.comp-item ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+}
+
+.comp-item.bad ul li::before {
+  content: "✖";
+  color: var(--danger);
+}
+
+/* Benefits & Features */
+.benefit-card {
+  background: white;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: center;
+  color: var(--secondary);
+}
+
+.benefit-card img {
+  width: 100%;
+  display: block;
+}
+
+.benefit-card .p-4 { padding: 20px; }
+
+/* Pricing */
+.package-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  color: var(--secondary);
+}
+
+.package-card.highlight {
+  border: 3px solid var(--primary);
+  transform: scale(1.02);
+}
+
+.popular-badge {
+  background: var(--primary);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--secondary);
+}
+
+/* FAQ */
+.faq-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.faq-q {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.faq-a {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* Form Styles */
+.order-form-container {
+  background: #fdfdfd;
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn-order {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  background: var(--danger);
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 25px;
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+  animation: shake 5s infinite;
+}
+
+@keyframes shake {
+  0% { transform: scale(1); }
+  5% { transform: scale(1.05); }
+  10% { transform: scale(1); }
+}
+
+/* Feedback Section */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.feedback-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  padding: 40px 0;
+  background: #f3f4f6;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+@media (min-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .feedback-grid { grid-template-columns: 1fr 1fr; }
+}

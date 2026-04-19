@@ -22,6 +22,27 @@
     src="https://www.facebook.com/tr?id=950021667576483&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+    <style>
+        /* Anti-Copy Protection */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input, textarea, select {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -224,6 +245,11 @@
                             <p style="display: flex; justify-content: space-between; font-size: 20px;"><span>JUMLAH:</span> <strong id="price-total" style="color: var(--primary-color);">RM89.00</strong></p>
                         </div>
 
+                        <!-- Honeypot Anti-Spam -->
+                        <div style="display:none;">
+                            <input type="text" name="honeypot" id="hp-field" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <button type="submit" class="btn-primary" style="width: 100%; border:none; cursor:pointer;">TEMPAH SEKARANG</button>
                     </form>
                 </div>
@@ -362,11 +388,18 @@
         document.getElementById('final-purchase-form').onsubmit = async (e) => {
             e.preventDefault();
 
+            const form = e.target;
+            
+            // Honeypot check
+            if (form.honeypot.value !== "") {
+                console.warn("Spam detected!");
+                return; // Silent block for bots
+            }
+
             const btn = e.target.querySelector('button[type="submit"]');
             btn.disabled = true;
             btn.textContent = 'Menghantar...';
-
-            const form = e.target;
+            
             const pkgSelect = document.getElementById('pkg-select');
             const regSelect = document.getElementById('reg-select');
 
@@ -406,6 +439,37 @@
                 window.location.href = 'thank-you.html';
             }
         };
+
+        // --- Landers Shield Protection ---
+        (function() {
+            // Disable Right Click
+            document.addEventListener('contextmenu', e => e.preventDefault());
+
+            // Disable Keyboard Shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+                if (
+                    e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) ||
+                    (e.metaKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 80)) // Mac support
+                ) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // Anti-Debugger Loop (Frustrates casual inspector users)
+            setInterval(function() {
+                const startTime = performance.now();
+                debugger;
+                const endTime = performance.now();
+                if (endTime - startTime > 100) {
+                    // Developer tools likely open or debugger was hit
+                    // We don't crash, just potentially disrupt behavior or log
+                }
+            }, 1000);
+        })();
     </script>
 </body>
 </html>

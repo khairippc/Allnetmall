@@ -553,22 +553,16 @@ footer {
 .ticker-avatars {
   display: flex;
   align-items: center;
-  position: relative;
-  width: 55px;
+  justify-content: center;
+  width: 45px;
   flex-shrink: 0;
 }
 
 .ticker-avatars img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  background: #eee;
-  object-fit: cover;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
-
-.ticker-avatars img:nth-child(2) { margin-left: -15px; }
-.ticker-avatars img:nth-child(3) { margin-left: -15px; }
 
 .ticker-info {
   flex-grow: 1;
@@ -633,13 +627,6 @@ footer {
 }
 
 @keyframes ticker-slide {
-  0% { transform: translateY(0); }
-  10% { transform: translateY(0); }
-  20% { transform: translateY(-70px); }
-  35% { transform: translateY(-70px); }
-  45% { transform: translateY(-140px); }
-  60% { transform: translateY(-140px); }
-  70% { transform: translateY(-210px); }
-  85% { transform: translateY(-210px); }
-  95% { transform: translateY(-280px); }
+  from { transform: translateY(0); }
+  to { transform: translateY(-1050px); } /* 15 items * 70px = 1050px */
 }

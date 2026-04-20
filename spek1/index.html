@@ -65,17 +65,6 @@
             </div>
         </div>
         <script>
-            function animateCount(el, target, duration) {
-                let start = 0, step = target / (duration / 16);
-                const timer = setInterval(() => {
-                    start += step;
-                    if (start >= target) { start = target; clearInterval(timer); }
-                    el.textContent = Math.floor(start).toLocaleString('en-MY');
-                }, 16);
-            }
-            const countEl = document.getElementById('unit-count');
-            if (countEl) animateCount(countEl, 135537, 1500);
-
             function playVideo() {
                 document.getElementById('videoThumbnail').style.display = 'none';
                 var vid = document.getElementById('mainVideo');
@@ -484,9 +473,21 @@
             tick();
         }
 
+        function animateCount(el, target, duration) {
+            let start = 0, step = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= target) { start = target; clearInterval(timer); }
+                el.textContent = Math.floor(start).toLocaleString('en-MY');
+            }, 16);
+        }
+
         window.onload = function () {
             const display = document.querySelector('#timer');
             startTimer(display);
+
+            const countEl = document.getElementById('unit-count');
+            if (countEl) animateCount(countEl, 135537, 1500);
         };
 
         // ── Form Submit ─────────────────────────────────────────────────

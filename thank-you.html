@@ -10,10 +10,11 @@
             max-width: 600px;
             margin: 40px auto;
             text-align: center;
-            background: #1e1e1e;
+            background: #ffffff;
             padding: 40px;
             border-radius: 15px;
-            border: 1px solid #333;
+            border: 1px solid #e1e8ed;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
         .success-icon {
             width: 80px;
@@ -28,7 +29,8 @@
             color: #000;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
         }
         .order-table td {
             padding: 12px 15px;
@@ -49,7 +51,6 @@
         }
         .courier-partners img {
             height: 40px;
-            filter: brightness(0) invert(1);
             opacity: 0.8;
         }
         .btn-home {
@@ -106,11 +107,11 @@
     <main class="container">
         <div class="thank-you-container">
             <img src="Thank%20you/Thank%20You_files/checked_2.png" alt="Success" class="success-icon">
-            <h2 style="color: var(--accent-yellow); margin-bottom: 15px; font-weight: 900; font-size: 32px;">TERIMA KASIH!</h2>
+            <h2 style="color: var(--accent-red); margin-bottom: 15px; font-weight: 900; font-size: 32px;">TERIMA KASIH!</h2>
             <p style="font-size: 18px; line-height: 1.6;">Pesanan anda telah berjaya diterima. Kami akan memproses pesanan anda dan menghubungi anda sebentar lagi untuk pengesahan penghantaran.</p>
             
             <div style="margin-top: 40px;">
-                <h3 style="color: #fff; font-weight: 800; font-size: 22px; margin-bottom: 20px;"><u>MAKLUMAT PESANAN</u></h3>
+                <h3 style="color: var(--text-dark); font-weight: 800; font-size: 22px; margin-bottom: 20px;"><u>MAKLUMAT PESANAN</u></h3>
                 <table class="order-table">
                     <tr>
                         <td>Nama Pelanggan:</td>
@@ -141,8 +142,8 @@
                         <td id="display-package">-</td>
                     </tr>
                     <tr>
-                        <td style="background: #fff200; color: #000;">Jumlah Bayaran:</td>
-                        <td id="display-total" style="font-weight: 900; color: var(--primary-color); font-size: 20px; background: #fff200;">-</td>
+                        <td style="background: #f1f4f7; color: #000;">Jumlah Bayaran:</td>
+                        <td id="display-total" style="font-weight: 900; color: var(--primary-color); font-size: 20px; background: #f1f4f7;">-</td>
                     </tr>
                 </table>
             </div>
@@ -160,7 +161,7 @@
     </main>
 
     <footer>
-        <div class="container" style="text-align: center; padding: 40px 0; font-size: 13px; color: #888; border-top: 1px solid #333; margin-top: 40px;">
+        <div class="container" style="text-align: center; padding: 40px 0; font-size: 13px; color: #636e72; border-top: 1px solid #e1e8ed; margin-top: 40px;">
             <p>&copy; 2026 Skin Tag Solution. All rights reserved.</p>
         </div>
     </footer>

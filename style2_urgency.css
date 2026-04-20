@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
 
 :root {
-    --primary-color: #ff2a00;
-    --dark-bg: #121212;
-    --darker-bg: #0a0a0a;
-    --accent-yellow: #fff200;
-    --text-light: #ffffff;
-    --text-muted: #b0b0b0;
+    --primary-color: #008450;
+    --dark-bg: #f8fafc;
+    --darker-bg: #ffffff;
+    --accent-red: #d63031;
+    --text-dark: #2d3436;
+    --text-muted: #636e72;
     --white: #ffffff;
     --container-width: 1000px;
 }
@@ -19,7 +19,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-light);
+    color: var(--text-dark);
     background-color: var(--dark-bg);
     line-height: 1.5;
 }
@@ -32,15 +32,16 @@ body {
 
 /* Urgency Bar */
 .urgency-bar {
-    background: var(--accent-yellow);
-    color: #000;
+    background: var(--accent-red);
+    color: #fff;
     text-align: center;
-    padding: 8px 0;
+    padding: 10px 0;
     font-weight: 800;
     font-size: 14px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 /* Header */
@@ -48,14 +49,14 @@ header {
     background: var(--darker-bg);
     padding: 20px 0;
     text-align: center;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .logo h1 {
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--text-dark);
     font-size: 28px;
 }
 
@@ -91,7 +92,7 @@ header {
 .subheadline {
     font-size: 20px;
     font-weight: 700;
-    color: var(--accent-yellow);
+    color: var(--primary-color);
 }
 
 .hero-main {
@@ -110,16 +111,17 @@ header {
 
 .hero-image img {
     width: 100%;
-    border: 5px solid var(--primary-color);
-    border-radius: 10px;
+    border: 5px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .badge-float {
     position: absolute;
     top: -20px;
     right: -20px;
-    background: var(--accent-yellow);
-    color: #000;
+    background: var(--accent-red);
+    color: #fff;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -130,17 +132,18 @@ header {
     font-weight: 900;
     font-size: 12px;
     transform: rotate(15deg);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 20px rgba(214, 48, 49, 0.3);
 }
 
 /* CTA Card */
 .cta-card {
-    background: #1e1e1e;
+    background: var(--white);
     padding: 30px;
     border-radius: 15px;
-    border: 1px solid #333;
+    border: 1px solid #e1e8ed;
     width: 100%;
     max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 .price-box {
@@ -169,9 +172,10 @@ header {
     text-decoration: none;
     font-weight: 900;
     font-size: 22px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(255, 42, 0, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 132, 80, 0.3);
     animation: pulse 1.5s infinite;
+    border: none;
 }
 
 @keyframes pulse {
@@ -186,7 +190,7 @@ header {
 }
 
 .bg-light {
-    background: #1a1a1a;
+    background: #f1f4f7;
 }
 
 .section-title {
@@ -212,7 +216,7 @@ header {
 .benefit-card h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: var(--accent-yellow);
+    color: var(--primary-color);
 }
 
 .benefit-card p {
@@ -236,7 +240,9 @@ header {
     background: var(--white);
     color: #000;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border: 1px solid #e1e8ed;
 }
 
 .form-box h2 {
@@ -266,12 +272,13 @@ input, select {
 }
 
 .benefit-card {
-    background: #1e1e1e;
+    background: var(--white);
     padding: 30px;
     border-radius: 15px;
-    border: 1px solid #333;
+    border: 1px solid #e1e8ed;
     text-align: center;
     margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
 }
 
 /* Usage Steps */
@@ -284,12 +291,14 @@ input, select {
 
 .usage-step {
     background: #ffffff;
-    color: #000;
+    color: var(--text-dark);
     padding: 20px;
     border-radius: 12px;
     display: flex;
     gap: 15px;
     align-items: flex-start;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e1e8ed;
 }
 
 .step-num {
@@ -311,10 +320,11 @@ input, select {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #000;
+    background: var(--white);
     padding: 10px;
     display: none;
     z-index: 2000;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 768px) {

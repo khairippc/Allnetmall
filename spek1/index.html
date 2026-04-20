@@ -444,27 +444,38 @@
         }
 
         // ── Timer Logic ───────────────────────────────────────────────
-        function startTimer(duration, display) {
-            let timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+        function startTimer(display) {
+            const TEN_MIN = 10 * 60 * 1000;
+            const KEY = 'spek_timer_end';
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+            if (!localStorage.getItem(KEY)) {
+                localStorage.setItem(KEY, Date.now() + TEN_MIN);
+            }
 
-                display.textContent = minutes + ":" + seconds;
+            function tick() {
+                const remaining = parseInt(localStorage.getItem(KEY)) - Date.now();
 
-                if (--timer < 0) {
-                    timer = duration; // Reset to 10 mins when it reaches 0
+                if (remaining <= 0) {
+                    display.textContent = '00:00';
+                    const container = display.closest('.countdown-container');
+                    if (container) {
+                        container.innerHTML = '<span style="color:#dc2626;font-weight:900;font-size:1.2rem;">⚠️ Tawaran Sudah Tamat</span>';
+                    }
+                    return;
                 }
-            }, 1000);
+
+                const minutes = Math.floor(remaining / 60000);
+                const seconds = Math.floor((remaining % 60000) / 1000);
+                display.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                setTimeout(tick, 500);
+            }
+
+            tick();
         }
 
         window.onload = function () {
-            let tenMinutes = 60 * 10,
-                display = document.querySelector('#timer');
-            startTimer(tenMinutes, display);
+            const display = document.querySelector('#timer');
+            startTimer(display);
         };
 
         // ── Form Submit ─────────────────────────────────────────────────

@@ -67,8 +67,8 @@
 
             <!-- Social Proof Ticker -->
             <div class="social-proof-wrapper">
-                <div class="social-proof-header">
-                    <span>80 people are buying now, <mark>Join now</mark></span>
+                <div class="social-proof-header" onclick="document.getElementById('order-form').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+                    <span><span id="visitorCount">43</span> people are buying now, <mark>Buy now</mark></span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 9L7.5 6L4.5 3" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div class="social-proof-ticker">
@@ -690,6 +690,22 @@
 
         populateTicker();
         setInterval(updateTickers, 100);
+
+        // ── Dynamic Visitor Count Logic ──────────────────────────────
+        let currentVisitors = 43;
+        const maxVisitors = 127;
+        const visitorCountEl = document.getElementById('visitorCount');
+
+        function updateVisitorCount() {
+            if (currentVisitors < maxVisitors) {
+                // Randomly increase by 1-3 people
+                currentVisitors += Math.floor(Math.random() * 3) + 1;
+                if (currentVisitors > maxVisitors) currentVisitors = maxVisitors;
+                visitorCountEl.textContent = currentVisitors;
+            }
+        }
+        // Update every 3-8 seconds
+        setInterval(updateVisitorCount, Math.floor(Math.random() * 5000) + 3000);
 
         // ── Anti-Copy & Shield Protection ──────────────────────────────
         document.addEventListener('contextmenu', e => e.preventDefault());

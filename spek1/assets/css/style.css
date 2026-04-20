@@ -476,6 +476,31 @@ footer {
   line-height: 1.4;
 }
 
+
+/* Floating Bar like Skin Tag */
+.floating-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 10px;
+  display: none;
+  z-index: 2000;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .floating-bar {
+    display: block;
+  }
+  
+  /* Ensure content doesn't get hidden behind the floating bar */
+  body {
+    padding-bottom: 80px;
+  }
+}
+
 @media (min-width: 768px) {
   .premium-benefits-grid {
     grid-template-columns: 1fr 1fr;

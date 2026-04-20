@@ -40,6 +40,7 @@
         <div class="container">
             <div class="pre-headline">Khas Untuk Pemandu Yang Selalu Silau Malam & Susah Fokus Bila Drive!</div>
             <h1>Jangan Biarkan Silau Ganggu Keselamatan Anda!</h1>
+            
             <p style="font-size: 1.2rem; margin-bottom: 10px;">Mata kabur bila kena lampu tinggi?<br>Silau boleh buat
                 pemanduan jadi bahaya.</p>
             <p class="text-yellow bold" style="font-size: 1.2rem; margin-bottom: 25px;">Kurangkan silau & nampak lebih
@@ -62,6 +63,19 @@
                     <source src="https://sumbersihat.com/wp-content/uploads/2025/10/IMG_6242.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+            </div>
+
+            <!-- Social Proof Ticker -->
+            <div class="social-proof-wrapper">
+                <div class="social-proof-header">
+                    <span>80 people are buying now, <mark>Join now</mark></span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 9L7.5 6L4.5 3" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="social-proof-ticker">
+                    <div class="ticker-list" id="socialTicker">
+                        <!-- Ticker rows will be injected by JS -->
+                    </div>
+                </div>
             </div>
         </div>
         <script>
@@ -586,6 +600,71 @@
                 window.location.href = 'thank-you.html';
             }
         };
+
+        // ── Social Proof Ticker Logic ──────────────────────────────────
+        const tickerNames = [
+            // Malay Female (70%)
+            "Siti Aminah", "Nurul Huda", "Aishah binti Bakar", "Fatimah Zahra", "Aminah Hassan", 
+            "Zulaikha", "Safiyyah", "Khadijah", "Maryam Ibrahim", "Raihana", "Puan Faridah", 
+            "Nor Hanum", "Rohana Mat", "Siti Amirah", "Zaiton", "Hasnah", "Rosnah", 
+            "Azura", "Salmiah", "Suraya", "Nora", "Farah", "Idayu", "Masitah",
+            // Malay Male (30%)
+            "Ahmad Fauzi", "Muhammad Ali", "Hassan Jupri", "Dato Razak", "Ibrahim Jusoh", 
+            "Yusuf Mat", "Ismail Daud", "Khalid", "Kamaluddin", "Azman",
+            // Chinese (5%)
+            "Mrs. Lim Wei", "Tan Mei Ling", "Wong Li", "Chan Sook Yee",
+            // Indian (5%)
+            "Mrs. Priya", "Raman Kumar", "Anjali Devi", "Suresh"
+        ];
+
+        const tickerListData = [];
+        for (let i = 0; i < 15; i++) {
+            const randomName = tickerNames[Math.floor(Math.random() * tickerNames.length)];
+            const randomMin = Math.floor(Math.random() * 15);
+            const randomSec = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+            const randomMsec = Math.floor(Math.random() * 10);
+            
+            tickerListData.push({
+                name: randomName,
+                timer: `00:${randomMin.toString().padStart(2, '0')}:${randomSec}.${randomMsec}`,
+                isRepeat: Math.random() > 0.7
+            });
+        }
+
+        const tickerEl = document.getElementById('socialTicker');
+        
+        function populateTicker() {
+            let html = '';
+            // Triple the list for seamless overflow scroll
+            const fullList = [...tickerListData, ...tickerListData, ...tickerListData];
+            fullList.forEach((item, idx) => {
+                const avatarId = (idx % 10) + 1; // 1-10
+                html += `
+                    <div class="ticker-row">
+                        <div class="ticker-avatars">
+                            <img src="https://i.pravatar.cc/100?u=${idx}" alt="User">
+                            <img src="https://i.pravatar.cc/100?u=${idx+10}" alt="User">
+                            <img src="https://i.pravatar.cc/100?u=${idx+20}" alt="User">
+                        </div>
+                        <div class="ticker-info">
+                            <div class="ticker-name">${item.name}</div>
+                            ${item.isRepeat ? '<div class="ticker-badge">Repeat customer</div>' : '<div class="ticker-badge" style="color:#10b981;border-color:#dcfce7;">Verified buyer</div>'}
+                        </div>
+                        <div class="ticker-urgency">
+                            <span class="urgency-label">Ending soon</span>
+                            <span class="urgency-timer">${item.timer}</span>
+                        </div>
+                        <div class="ticker-cta">
+                            <a href="#order-form" class="btn-ticker-buy">Buy Now</a>
+                        </div>
+                    </div>
+                `;
+            });
+            tickerEl.innerHTML = html;
+            tickerEl.style.animation = `ticker-slide ${tickerListData.length * 3}s linear infinite`;
+        }
+
+        populateTicker();
 
         // ── Anti-Copy & Shield Protection ──────────────────────────────
         document.addEventListener('contextmenu', e => e.preventDefault());

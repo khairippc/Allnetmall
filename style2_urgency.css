@@ -346,14 +346,22 @@ input, select {
 /* Social Proof Ticker (Pinduoduo Style) */
 .social-proof-wrapper {
     background: #ffffff;
-    border-radius: 0;
-    margin: 15px 0 25px 0;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    width: 100vw;
+    border-radius: 12px;
+    margin: 15px auto 25px auto;
+    max-width: 500px;
+    width: 100%;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: left;
+}
+@media (max-width: 480px) {
+    .social-proof-wrapper {
+        border-radius: 0;
+        max-width: 100%;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
 }
 
 .social-proof-header {

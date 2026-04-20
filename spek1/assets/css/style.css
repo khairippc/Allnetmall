@@ -348,6 +348,7 @@ input, select, textarea {
   border: none;
   cursor: pointer;
   text-transform: uppercase;
+  text-align: center;
   box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
   animation: shake 5s infinite;
 }

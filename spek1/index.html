@@ -65,6 +65,17 @@
             </div>
         </div>
         <script>
+            function animateCount(el, target, duration) {
+                let start = 0, step = target / (duration / 16);
+                const timer = setInterval(() => {
+                    start += step;
+                    if (start >= target) { start = target; clearInterval(timer); }
+                    el.textContent = Math.floor(start).toLocaleString('en-MY');
+                }, 16);
+            }
+            const countEl = document.getElementById('unit-count');
+            if (countEl) animateCount(countEl, 135537, 1500);
+
             function playVideo() {
                 document.getElementById('videoThumbnail').style.display = 'none';
                 var vid = document.getElementById('mainVideo');
@@ -72,7 +83,7 @@
                 vid.play();
             }
         </script>
-        <p class="text-center bold text-yellow" style="font-size: 1.5rem;">UNIT TELAH TERJUAL: 135,537+</p>
+        <p class="text-center bold text-yellow" style="font-size: 1.5rem;">UNIT TELAH TERJUAL: <span id="unit-count">0</span>+</p>
         <a href="#order-form" class="btn-order">DAPATKAN SEKARANG</a>
         </div>
     </section>

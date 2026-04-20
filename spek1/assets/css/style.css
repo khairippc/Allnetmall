@@ -417,7 +417,67 @@ footer {
   color: #6b7280;
 }
 
+
+/* Premium Minimalist Benefits Section (Idea 2) */
+.premium-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.premium-benefit-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.premium-benefit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.premium-benefit-icon {
+  width: 44px;
+  height: 44px;
+  background: #fff9f0; /* Very soft orange tint */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premium-benefit-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.premium-benefit-content h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  text-align: left;
+  text-transform: none;
+  color: var(--secondary);
+}
+
+.premium-benefit-content p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
 @media (min-width: 768px) {
-  .hero h1 { font-size: 2.5rem; }
-  .feedback-grid { grid-template-columns: 1fr 1fr; }
+  .premium-benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

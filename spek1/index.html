@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Karla:wght@400;700&display=swap"
-    <!-- Meta Pixel Code -->
+        <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
@@ -47,31 +47,33 @@
             <div class="video-container">
                 <div class="video-wrapper" id="videoWrapper">
                     <div class="video-thumbnail" id="videoThumbnail" onclick="playVideo()">
-                        <img src="assets/images/video-thumbnail.png" alt="POV Drive Malam Tanpa Silau" style="width:100%; display:block;">
+                        <img src="assets/images/video-thumbnail.png" alt="POV Drive Malam Tanpa Silau"
+                            style="width:100%; display:block;">
                         <div class="video-play-button">
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="45" fill="black" opacity="0.6" stroke="white" stroke-width="3" />
+                                <circle cx="50" cy="50" r="45" fill="black" opacity="0.6" stroke="white"
+                                    stroke-width="3" />
                                 <polygon points="40,30 40,70 70,50" fill="white" />
                             </svg>
                         </div>
                     </div>
-                    </div>
-                    <video id="mainVideo" controls style="display:none; width:100%;">
-                        <source src="https://sumbersihat.com/wp-content/uploads/2025/10/IMG_6242.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
                 </div>
+                <video id="mainVideo" controls style="display:none; width:100%;">
+                    <source src="https://sumbersihat.com/wp-content/uploads/2025/10/IMG_6242.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <script>
-                function playVideo() {
-                    document.getElementById('videoThumbnail').style.display = 'none';
-                    var vid = document.getElementById('mainVideo');
-                    vid.style.display = 'block';
-                    vid.play();
-                }
-            </script>
-            <p class="text-center bold text-yellow" style="font-size: 1.5rem;">UNIT TELAH TERJUAL: 135,537+</p>
-            <a href="#order-form" class="btn-order">DAPATKAN SEKARANG</a>
+        </div>
+        <script>
+            function playVideo() {
+                document.getElementById('videoThumbnail').style.display = 'none';
+                var vid = document.getElementById('mainVideo');
+                vid.style.display = 'block';
+                vid.play();
+            }
+        </script>
+        <p class="text-center bold text-yellow" style="font-size: 1.5rem;">UNIT TELAH TERJUAL: 135,537+</p>
+        <a href="#order-form" class="btn-order">DAPATKAN SEKARANG</a>
         </div>
     </section>
 
@@ -111,7 +113,8 @@
             <h2 class="text-yellow">MATA NORMAL VS ASTIGMATISM (SILAU)</h2>
             <div class="text-center" style="margin-bottom: 25px;">
                 <div style="max-width: 600px; margin: 0 auto;">
-                    <img src="assets/images/eye-comparison.png" alt="Mata Normal vs Astigmatism" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="assets/images/eye-comparison.png" alt="Mata Normal vs Astigmatism"
+                        style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                 </div>
             </div>
 
@@ -235,7 +238,7 @@
 
             <div class="order-form-container">
                 <h3 class="text-center" style="margin-bottom: 25px;">BORANG TEMPAHAN</h3>
-                
+
                 <div class="countdown-container">
                     <span class="countdown-label">TAWARAN TAMAT DALAM:</span>
                     <div id="timer" class="countdown-timer">10:00</div>
@@ -309,9 +312,11 @@
                     </div>
                     <div style="background: #f4f4f4; padding: 20px; border-radius: 8px; margin: 20px 0; color: #111;">
                         <p style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span>Pakej:</span> <strong id="price-pkg">RM139.00</strong></p>
+                            <span>Pakej:</span> <strong id="price-pkg">RM139.00</strong>
+                        </p>
                         <p style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span>Postage:</span> <strong id="price-ship" style="color: #16a34a;">FREE</strong></p>
+                            <span>Postage:</span> <strong id="price-ship" style="color: #16a34a;">FREE</strong>
+                        </p>
                         <hr style="margin: 10px 0; border-color: #ddd;">
                         <p style="display: flex; justify-content: space-between; font-size: 1.2rem;"><span>JUMLAH
                                 BAYARAN:</span> <strong id="price-total" style="color: var(--danger);">RM139.00</strong>
@@ -458,7 +463,7 @@
 
         window.onload = function () {
             let tenMinutes = 60 * 10,
-            display = document.querySelector('#timer');
+                display = document.querySelector('#timer');
             startTimer(tenMinutes, display);
         };
 

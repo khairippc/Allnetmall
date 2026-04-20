@@ -75,6 +75,19 @@
                         </div>
                     </div>
 
+                    <!-- Social Proof Ticker -->
+                    <div class="social-proof-wrapper">
+                        <div class="social-proof-header" onclick="document.getElementById('order-form').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+                            <span><span id="visitorCount">43</span> people are buying now, <mark>Buy now</mark></span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 9L7.5 6L4.5 3" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="social-proof-ticker">
+                            <div class="ticker-list" id="socialTicker">
+                                <!-- Ticker rows injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="cta-card">
                         <div class="price-box">
                             <span class="old-price">RM 49.00</span>
@@ -439,6 +452,102 @@
                 window.location.href = 'thank-you.html';
             }
         };
+
+        // ── Social Proof Ticker Logic (Skin Tag Edition) ──────────────────────────
+        const tickerNames = [
+            "Hajah Rosnah", "Haji Sulaiman", "Dayangku Hanum", "Wan Syahira", "Nizam Mat", 
+            "Hafizuddin", "Lukman Hakim", "Puan Izana", "Salmi binti Yusof", "Hanis Zulaikha", 
+            "Farhana", "Jamilah Kassim", "Rohaiza", "Firdaus", "Khairul Nizam", "Syazwan", 
+            "Madam Lee Siew", "Mr. Tan Keng", "Mrs. Devi", "Karthik"
+        ];
+
+        const semenanjungLocs = [
+            "Petaling Jaya, Selangor", "Shah Alam, Selangor", "Kota Bharu, Kelantan", 
+            "Johor Bahru, Johor", "Ayer Keroh, Melaka", "Batu Pahat, Johor", 
+            "Ipoh, Perak", "Kuantan, Pahang", "Seremban, N. Sembilan", "Alor Setar, Kedah"
+        ];
+        const eastMsiaLocs = ["Kuching, Sarawak", "Kota Kinabalu, Sabah", "Miri, Sarawak"];
+
+        const mapPinSvg = `<svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C16 17.5 19 14.4183 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 14.4183 8 17.5 12 21Z" fill="#EF4444" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="12" cy="11" r="2.5" fill="white"/>
+        </svg>`;
+
+        const tickerListData = [];
+        const numItems = 15;
+        for (let i = 0; i < numItems; i++) {
+            const randomName = tickerNames[Math.floor(Math.random() * tickerNames.length)];
+            const isSemenanjung = Math.random() > 0.1;
+            const locPool = isSemenanjung ? semenanjungLocs : eastMsiaLocs;
+            const randomLoc = locPool[Math.floor(Math.random() * locPool.length)];
+            const initialTime = Math.floor(Math.random() * 900) + 60;
+            
+            tickerListData.push({
+                idx: i,
+                name: randomName,
+                location: randomLoc,
+                timeLeft: initialTime,
+                isRepeat: Math.random() > 0.7
+            });
+        }
+
+        const tickerEl = document.getElementById('socialTicker');
+        
+        function formatTickerTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            const ms = Math.floor((seconds % 1) * 10);
+            return `00:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}.${ms}`;
+        }
+
+        function populateTicker() {
+            let html = '';
+            const fullList = [...tickerListData, ...tickerListData, ...tickerListData];
+            fullList.forEach((item, idx) => {
+                html += `
+                    <div class="ticker-row">
+                        <div class="ticker-avatars">${mapPinSvg}</div>
+                        <div class="ticker-info">
+                            <div class="ticker-name">${item.name} <span style="font-weight:400; font-size:0.75rem; color:#6b7280;">• ${item.location}</span></div>
+                            ${item.isRepeat ? '<div class="ticker-badge">Repeat customer</div>' : '<div class="ticker-badge" style="color:#10b981;border-color:#dcfce7;">Verified buyer</div>'}
+                        </div>
+                        <div class="ticker-urgency">
+                            <span class="urgency-label">Ending soon</span>
+                            <span class="urgency-timer" data-id="${idx}">${formatTickerTime(item.timeLeft)}</span>
+                        </div>
+                        <div class="ticker-cta"><a href="#order-form" class="btn-ticker-buy">Buy Now</a></div>
+                    </div>
+                `;
+            });
+            tickerEl.innerHTML = html;
+            tickerEl.style.animation = `ticker-slide ${numItems * 1}s linear infinite`;
+        }
+
+        function updateTickers() {
+            tickerListData.forEach(item => {
+                if (item.timeLeft > 0) item.timeLeft -= 0.1;
+                else item.timeLeft = Math.floor(Math.random() * 900) + 60;
+            });
+            document.querySelectorAll('.urgency-timer').forEach(el => {
+                const idx = parseInt(el.dataset.id);
+                const item = tickerListData[idx % numItems];
+                el.textContent = formatTickerTime(item.timeLeft);
+            });
+        }
+
+        let currentVisitors = 43;
+        const maxVisitors = 127;
+        function updateVisitorCount() {
+            if (currentVisitors < maxVisitors) {
+                currentVisitors += Math.floor(Math.random() * 3) + 1;
+                if (currentVisitors > maxVisitors) currentVisitors = maxVisitors;
+                document.getElementById('visitorCount').textContent = currentVisitors;
+            }
+        }
+
+        populateTicker();
+        setInterval(updateTickers, 100);
+        setInterval(updateVisitorCount, Math.floor(Math.random() * 5000) + 3000);
 
         // --- Landers Shield Protection ---
         (function() {

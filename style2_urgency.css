@@ -342,3 +342,138 @@ input, select {
         display: block;
     }
 }
+
+/* Social Proof Ticker (Pinduoduo Style) */
+.social-proof-wrapper {
+    background: #ffffff;
+    border-radius: 0;
+    margin: 15px 0 25px 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.social-proof-header {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #111827;
+}
+
+.social-proof-header span mark {
+    background: none;
+    color: #ef4444;
+}
+
+.social-proof-ticker {
+    height: 140px; /* Show 2 rows */
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker-list {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.ticker-row {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    border-bottom: 1px solid #f9fafb;
+    background: #fff;
+    gap: 4px;
+}
+
+.ticker-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    flex-shrink: 0;
+}
+
+.ticker-avatars svg, .ticker-avatars img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.ticker-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.ticker-name {
+    font-weight: 800;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.ticker-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+    border-radius: 4px;
+    padding: 1px 4px;
+    margin-top: 2px;
+}
+
+.ticker-urgency {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.urgency-label {
+    font-size: 0.6rem;
+    color: #ef4444;
+    font-weight: 700;
+    display: block;
+}
+
+.urgency-timer {
+    font-size: 0.65rem;
+    font-family: monospace;
+    color: #374151;
+    font-weight: 700;
+}
+
+.ticker-cta {
+    flex-shrink: 0;
+}
+
+.btn-ticker-buy {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+}
+
+@keyframes ticker-slide {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1050px); } /* 15 items * 70px = 1050px */
+}
